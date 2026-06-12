@@ -1,2 +1,57 @@
 @import "tailwindcss";
-:root{--paper:#f6f5ef;--ink:#14221e;--ink-soft:#596963;--ink-faint:#87948e;--pine-deep:#102b25;--pine:#1d594b;--pine-strong:#143f36;--mint:#e6f1eb;--mint-strong:#9bc9b5;--amber:#f3b14c;--amber-strong:#e6a039;--amber-soft:#fff0d4;--line:#dde3de;--line-strong:#c9d1cb;--focus:#f3b14c55;--shadow-soft:0 24px 70px #162c2617;--font-display:Georgia,serif;--font-ui:Inter,system-ui,sans-serif;--font-mono:monospace}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui)}a{color:inherit;text-decoration:none}.font-display{font-family:var(--font-display)}.container-shell{width:min(100% - 2rem,1200px);margin-inline:auto}.eyebrow,.mono-label{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}.eyebrow{color:var(--pine)}.nav-link:hover{color:var(--pine)}
+
+:root {
+  --paper: #f6f5ef;
+  --paper-deep: #ecebe3;
+  --white: #ffffff;
+  --ink: #14221e;
+  --ink-soft: #596963;
+  --ink-faint: #87948e;
+  --pine-deep: #102b25;
+  --pine: #1d594b;
+  --pine-strong: #143f36;
+  --mint: #e6f1eb;
+  --mint-strong: #9bc9b5;
+  --amber: #f3b14c;
+  --amber-strong: #e6a039;
+  --amber-soft: #fff0d4;
+  --coral: #ff7d63;
+  --coral-soft: #ffe4dd;
+  --blue: #527df2;
+  --blue-soft: #e0e8ff;
+  --violet: #8658e5;
+  --violet-soft: #e9dfff;
+  --line: #dde3de;
+  --line-strong: #c9d1cb;
+  --focus: rgba(243, 177, 76, .35);
+  --shadow-soft: 0 24px 70px rgba(22, 44, 38, .09);
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-ui); text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+::selection { background: var(--amber); color: var(--pine-deep); }
+
+.font-display { font-family: var(--font-display); }
+.container-shell { width: min(100% - 2rem, 1200px); margin-inline: auto; }
+.eyebrow, .mono-label { font-family: var(--font-mono); font-size: 11px; line-height: 1.3; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
+.eyebrow { color: var(--pine); }
+.nav-link { position: relative; transition: color .2s; }
+.nav-link:hover { color: var(--pine); }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; border-radius: 2px; background: var(--amber); transition: right .2s; }
+.nav-link:hover::after { right: 0; }
+
+.hero-grid { background-image: linear-gradient(rgba(29,89,75,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(29,89,75,.055) 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
+
+@keyframes float-soft { 0%, 100% { transform: translateY(0) rotate(var(--rotate,0deg)); } 50% { transform: translateY(-8px) rotate(var(--rotate,0deg)); } }
+.float-soft { animation: float-soft 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
